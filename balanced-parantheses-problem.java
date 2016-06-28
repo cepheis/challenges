@@ -1,10 +1,19 @@
+// A string containing only parentheses is balanced if the following is true: 1. if it is an empty string 2. if A and B are correct, AB is correct, 3. if A is correct, (A) and {A} and [A] are also correct.
+//
+// Examples of some correctly balanced strings are: "{}()", "[{()}]", "({()})"
+//
+// Examples of some unbalanced strings are: "{}(", "({)}", "[[", "}{" etc.
+//
+// Given a string, determine if it is balanced or not.
+
+
 private static Character Opening_Paranthesis = '(';
 private static Character Closing_Paranthesis = ')';
 private static Character Opening_Brace = '{';
 private static Character Closing_Brace = '}';
 private static Character Opening_Bracket = '[';
 private static Character Closing_Bracket = ']';
-    
+
  public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -31,7 +40,7 @@ private static Character Closing_Bracket = ']';
             System.out.println(result[i]);
         }
     }
-    
+
 static boolean[] calculateBalanced(ArrayList<String> values){
         boolean[] result = new boolean[values.size()];
         for (int i = 0; i < values.size(); i++) {
@@ -56,7 +65,7 @@ static boolean[] calculateBalanced(ArrayList<String> values){
                         result[i] = false;
                         break;
                     }
-                    
+
                 else if (values.get(i).charAt(j) == Closing_Brace)
                     if (!stack.isEmpty() && (stack.pop() == Opening_Brace))
                         result[i] = true;
@@ -64,7 +73,7 @@ static boolean[] calculateBalanced(ArrayList<String> values){
                         result[i] = false;
                         break;
                     }
-                    
+
                 else if (values.get(i).charAt(j) == Closing_Bracket)
                     if (!stack.isEmpty() && (stack.pop() == Opening_Bracket))
                         result[i] = true;

@@ -1,3 +1,5 @@
+//Coin Change is the problem of finding the number of ways of making changes for a particular amount of cents.
+
 def calculateCoinChange(coins: List[Int], amount: Int): Int = {
   val solution = Array.ofDim[Int](coins.length + 1, amount + 1)
 
